@@ -1,0 +1,253 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+  min-height: 100vh;
+  font-family: 'Orbitron', 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #f3f3f3;
+  overflow-x: hidden;
+  letter-spacing: 1.2px;
+  animation: bgMove 12s linear infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100vw 100vh; }
+}
+
+.recipe {
+  max-width: 650px;
+  margin: 4rem auto;
+  background: rgba(20, 24, 28, 0.97);
+  text-align: center;
+  border-radius: 32px;
+  box-shadow: 0 0 40px #00ffe7cc, 0 0 80px #ffb34733;
+  padding: 3rem 2.5rem 2.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInMain 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  border: 2px solid #00ffe7;
+}
+
+.recipe h1{
+  color: rgb(255, 247, 0);
+  font-size: 40px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+@keyframes fadeInMain {
+  from { opacity: 0; transform: scale(0.92) translateY(60px);}
+  to { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+.recipe::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -30%;
+  width: 160%;
+  height: 160%;
+  background: conic-gradient(from 90deg, #00ffe7 0%, #ffb347 50%, #00ffe7 100%);
+  opacity: 0.08;
+  filter: blur(60px);
+  z-index: 0;
+  animation: spinBg 12s linear infinite;
+}
+
+@keyframes spinBg {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+
+.input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.8rem;
+  position: relative;
+  z-index: 2;
+}
+
+#inp {
+  background: #181a1b;
+  color: #00ffe7;
+  border: 2px solid #00ffe7;
+  border-radius: 18px;
+  padding: 1.1rem 1.7rem;
+  font-size: 1.25rem;
+  outline: none;
+  box-shadow: 0 0 18px #00ffe755, 0 2px 8px #0006;
+  transition: border 0.3s, box-shadow 0.3s, background 0.3s, color 0.3s;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+#inp:focus {
+  border: 2px solid #ffb347;
+  background: #23272a;
+  box-shadow: 0 0 24px #ffb34799, 0 2px 8px #0006;
+  color: #ffd580;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 18px #00ffe755; }
+  100% { box-shadow: 0 0 32px #00ffe7cc; }
+}
+
+#btn {
+  background: linear-gradient(90deg, #00ffe7 0%, #ffb347 100%);
+  color: #23272a;
+  border: none;
+  border-radius: 18px;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 24px #00ffe755, 0 2px 8px #0006;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s, color 0.3s;
+  letter-spacing: 2px;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: btnGlow 2.5s infinite alternate;
+}
+
+#btn::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: radial-gradient(circle, #00ffe7 0%, transparent 70%);
+  opacity: 0.18;
+  animation: btnGlowBg 2.5s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes btnGlow {
+  0% { box-shadow: 0 0 24px #00ffe755; }
+  100% { box-shadow: 0 0 48px #ffb34799; }
+}
+@keyframes btnGlowBg {
+  0% { transform: scale(1);}
+  100% { transform: scale(1.15);}
+}
+
+#btn:hover, #btn:focus {
+  background: linear-gradient(90deg, #ffb347 0%, #00ffe7 100%);
+  color: #181a1b;
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 0 48px #ffb347cc, 0 4px 24px #00ffe799;
+}
+
+.ing {
+  margin-top: 2.5rem;
+  background: rgba(24, 26, 27, 0.92);
+  border-radius: 22px;
+  box-shadow: 0 2px 32px #00ffe733, 0 0 24px #ffb34722;
+  padding: 2.5rem 2rem;
+  animation: fadeInResult 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+  min-height: 200px;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Futuristic headings for Title, Ingredients, Instructions */
+#title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 1.5rem 0 1.2rem 0;
+  color: #00ffe7;
+  text-shadow: 0 0 18px #00ffe7cc, 0 0 8px #fff2;
+  letter-spacing: 2px;
+  animation: fadeInText 1.2s;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+#ingri {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.2rem 0;
+  color: #ffb347;
+  text-shadow: 0 0 14px #ffb347cc, 0 0 8px #fff2;
+  letter-spacing: 1.5px;
+  animation: fadeInText 1.5s 0.2s backwards;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+#instructions {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1.2rem 0;
+  color: #ffd580;
+  text-shadow: 0 0 12px #ffd580cc, 0 0 8px #fff2;
+  letter-spacing: 1.2px;
+  animation: fadeInText 1.7s 0.4s backwards;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Add a glowing border animation to the .ing box */
+.ing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  pointer-events: none;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, #00ffe7, #ffb347, #ffd580, #00ffe7);
+  background-size: 400% 400%;
+  opacity: 0.18;
+  z-index: 0;
+  animation: borderGlow 6s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #23272a;
+}
+::-webkit-scrollbar-thumb {
+  background: #444950;
+  border-radius: 8px;
+}
+@media screen and (max-width: 675px){
+  .recipe{
+    margin: 4rem 0.5rem;
+  }
+}
+@media screen and (max-width: 570px)
+{
+  .recipe{
+    margin: 4rem 0.5rem;
+  }
+  .recipe .input{
+    flex-direction: column
+  }
+}
+
+/* Orbitron font for extra futuristic look */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
